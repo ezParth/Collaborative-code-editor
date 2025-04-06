@@ -39,3 +39,8 @@ A real-time collaborative code editor built with **React**, **Monaco Editor**, *
 ```bash
 git clone https://github.com/yourusername/collaborative-editor.git
 cd collaborative-editor
+cd server
+npm run dev
+// open another terminal
+cd client
+npm run dev
