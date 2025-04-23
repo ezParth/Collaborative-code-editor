@@ -18,8 +18,8 @@ A real-time collaborative code editor built with **React**, **Monaco Editor**, *
 
 ## 📸 Preview
 
-![Preview 1](assets/img1.png)
-![Preview 2](assets/img2.png)
+![Preview 1](client/src/assets/img1.png)
+![Preview 2](client/src/assets/img2.png)
 
 ---
 
