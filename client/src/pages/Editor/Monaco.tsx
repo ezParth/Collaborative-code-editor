@@ -10,7 +10,7 @@ const Monaco: React.FC = () => {
   const { editorlanguages, setEditorLanguage } = useContext(languageContext);
 
   const editorRef = useRef<any>(null);
-  const [code, setCode] = useState("Hello world");
+  const [code, setCode] = useState("// start writing code from here");
   const [isConnected, setIsConnected] = useState(false);
   const [socketId, setSocketId] = useState<string | null>(null);
   const isRemoteUpdate = useRef(false);
@@ -163,16 +163,17 @@ const Monaco: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen bg-zinc-900 text-white">
-      <div className="w-60 bg-zinc-800 border-r border-zinc-700 p-4">
-        <h2 className="text-lg font-semibold mb-4">Files</h2>
-        <ul className="space-y-2">
+    <div className="flex h-screen w-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-mono">
+      {/* Sidebar */}
+      <div className="w-64 bg-[#111827] border-r border-zinc-700 p-5 shadow-xl">
+        <h2 className="text-xl font-bold mb-6 text-purple-400">📂 Files</h2>
+        <ul className="space-y-3">
           {Object.keys(files).map((file) => (
             <li
               key={file}
               onClick={() => handleFileClick(file)}
-              className={`cursor-pointer px-3 py-2 rounded hover:bg-zinc-700 ${
-                file === currentFile ? "bg-zinc-700 font-bold" : ""
+              className={`cursor-pointer px-4 py-2 rounded-lg transition-all duration-200 hover:bg-zinc-700 ${
+                file === currentFile ? "bg-purple-700/50 font-bold ring-1 ring-purple-400" : ""
               }`}
             >
               {file}
@@ -180,27 +181,36 @@ const Monaco: React.FC = () => {
           ))}
         </ul>
       </div>
-
+  
+      {/* Main Area */}
       <div className="flex flex-col flex-grow">
-        <div className="flex flex-wrap gap-2 px-4 py-2 border-b border-zinc-700 bg-zinc-800">
-          <button onClick={changeTheme} className="btn bg-zinc-700 px-3 py-1 rounded hover:bg-zinc-600">
-            Toggle Theme
+        {/* Top Bar */}
+        <div className="flex flex-wrap gap-3 px-6 py-4 border-b border-zinc-700 bg-[#0F172A]/70 backdrop-blur-md shadow-md">
+          <button
+            onClick={changeTheme}
+            className="bg-zinc-700 hover:bg-zinc-600 text-sm px-4 py-2 rounded-full transition"
+          >
+            🎨 Toggle Theme
           </button>
           {["js", "py", "cpp", "go", "html", "css", "php", "rb"].map((lang) => (
             <button
               key={lang}
               onClick={() => changeLanguage(lang)}
-              className="btn bg-zinc-700 px-3 py-1 rounded hover:bg-zinc-600"
+              className="bg-zinc-700 hover:bg-purple-700 px-4 py-2 rounded-full text-sm transition"
             >
               {lang.toUpperCase()}
             </button>
           ))}
-          <button onClick={getCursorPosition} className="btn bg-zinc-700 px-3 py-1 rounded hover:bg-zinc-600">
-            Cursor Pos
+          <button
+            onClick={getCursorPosition}
+            className="ml-auto bg-zinc-700 hover:bg-zinc-600 px-4 py-2 rounded-full text-sm transition"
+          >
+            🔍 Cursor Pos
           </button>
         </div>
-
-        <div className="flex-grow">
+  
+        {/* Editor */}
+        <div className="flex-grow bg-[#0B1120]">
           <Editor
             height="100%"
             width="100%"
@@ -208,11 +218,18 @@ const Monaco: React.FC = () => {
             defaultLanguage={editorlanguages}
             defaultValue={code}
             onMount={handleEditorDidMount}
+            options={{
+              fontSize: 15,
+              minimap: { enabled: false },
+              scrollBeyondLastLine: false,
+              wordWrap: "on",
+            }}
           />
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default Monaco;
