@@ -2,6 +2,13 @@
 
 A real-time collaborative code editor built with **React**, **Monaco Editor**, **Socket.IO**, and **Tailwind CSS**. It supports multiple programming languages, live code sharing, and an interactive file system sidebar.
 
+___
+
+## 📸 Preview
+
+![Preview 1](client/src/assets/img1.png)
+![Preview 2](client/src/assets/img2.png)
+
 ---
 
 ## 🚀 Features
@@ -14,12 +21,8 @@ A real-time collaborative code editor built with **React**, **Monaco Editor**, *
 - ✍️ Dynamic cursor tracking and code updates
 - 🔁 Synchronize code changes across connected users
 
----
 
-## 📸 Preview
 
-![Preview 1](client/src/assets/img1.png)
-![Preview 2](client/src/assets/img2.png)
 
 ---
 
