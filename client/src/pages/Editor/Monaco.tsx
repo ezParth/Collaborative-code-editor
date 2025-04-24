@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef, useState, useContext } from "react";
 import Editor from "@monaco-editor/react";
 import * as monaco from "monaco-editor"; // Required for setModelLanguage
@@ -11,8 +12,8 @@ const Monaco: React.FC = () => {
 
   const editorRef = useRef<any>(null);
   const [code, setCode] = useState("// start writing code from here");
-  const [isConnected, setIsConnected] = useState(false);
-  const [socketId, setSocketId] = useState<string | null>(null);
+  // const [isConnected, setIsConnected] = useState(false);
+  // const [socketId, setSocketId] = useState<string | null>(null);
   const isRemoteUpdate = useRef(false);
 
   // File system
@@ -57,13 +58,13 @@ const Monaco: React.FC = () => {
     socket.connect();
 
     const onConnect = () => {
-      setIsConnected(true);
-      setSocketId(socket.id || null);
+      // setIsConnected(true);
+      // setSocketId(socket.id || null);
       console.log("Connected to socket:", socket.id);
     };
 
     const onDisconnect = () => {
-      setIsConnected(false);
+      // setIsConnected(false);
       sessionStorage.removeItem("SocketID");
       sessionStorage.removeItem("senderSocketID");
       console.log("Socket disconnected");

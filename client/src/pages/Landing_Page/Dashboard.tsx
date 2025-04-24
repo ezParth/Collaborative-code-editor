@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
         className="text-center"
       >
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-[#7C00FE] via-[#F5004F] to-[#F9E400] text-transparent bg-clip-text mb-4">
-          Welcome to CodeSync
+          Welcome to Code w/ Code
         </h1>
         <p className="text-lg text-gray-400 max-w-xl mx-auto">
           Collaborate, code, and create in real-time. Jump back into your latest project or start something new.
