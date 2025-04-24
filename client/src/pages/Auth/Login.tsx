@@ -2,9 +2,9 @@ import { SignIn } from "@clerk/clerk-react";
 import React from "react";
 
 const Login: React.FC = () => {
-    
+
     return (
-        <div className="flex item-center justify-center">
+        <div className="flex items-center justify-center h-screen">
             <SignIn />
         </div>
     )

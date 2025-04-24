@@ -3,7 +3,7 @@ import { SignUp } from '@clerk/clerk-react'
 
 const Signup: React.FC = () => {
     return (
-        <div>
+        <div className='flex items-center justify-center h-screen'>
             <SignUp />
         </div>
     )

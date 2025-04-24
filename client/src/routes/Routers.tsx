@@ -19,16 +19,15 @@ const Router = createBrowserRouter([
                 element: <Dashboard />
             },
             {
-                path: "login",
+                path: "Login",
                 element: <Login />
             },
             {
-                path: "signup",
+                path: "Signup",
                 element: <Signup />
             }
         ]
     },
-
 ]);
 
 export default Router;
